@@ -1,0 +1,52 @@
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.envs = void 0;
+require("dotenv/config");
+const env = __importStar(require("env-var"));
+exports.envs = {
+    PORT: env.get("PORT").required().asPortNumber(),
+    MAPBOX_TOKEN: env.get("MAPBOX_TOKEN").required().asString(),
+    MAILER_EMAIL: env.get("MAILER_EMAIL").required().asString(),
+    MAILER_PASSWORD: env.get("MAILER_PASSWORD").required().asString(),
+    MAILER_SERVICE: env.get("MAILER_SERVICE").required().asString(),
+    MAIL_TO: env.get("MAIL_TO").default("").asString(),
+    DB_PASSWORD: env.get("DB_PASSWORD").required().asString(),
+    DB_NAME: env.get("DB_NAME").required().asString(),
+    DB_PORT: env.get("DB_PORT").required().asPortNumber(),
+    DB_HOST: env.get("DB_HOST").required().asString(),
+    DB_USER: env.get("DB_USER").required().asString(),
+};
+//# sourceMappingURL=envs.js.map

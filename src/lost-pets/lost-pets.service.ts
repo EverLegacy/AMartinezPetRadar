@@ -24,6 +24,13 @@ export class LostPetsService {
         )
     `, [lng, lat, distance]);
 }
+    async findAllActive(): Promise<LostPet[]> {
+     return await this.lostPetRepo.find({
+          where: {
+             is_active: true,
+         },
+     });
+    }
 
     async create(dto: CreateLostPetDto): Promise<LostPet> {
     const entity = this.lostPetRepo.create({

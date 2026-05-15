@@ -1,0 +1,30 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.IncidentType = void 0;
+var IncidentType;
+(function (IncidentType) {
+    IncidentType[IncidentType["THIEFS"] = 1] = "THIEFS";
+    IncidentType[IncidentType["ROBBERY"] = 2] = "ROBBERY";
+    IncidentType[IncidentType["VANDALISM"] = 3] = "VANDALISM";
+    IncidentType[IncidentType["FRAUD"] = 4] = "FRAUD";
+    IncidentType[IncidentType["KIDNAPPING"] = 5] = "KIDNAPPING";
+    IncidentType[IncidentType["TRAFFIC"] = 6] = "TRAFFIC";
+    IncidentType[IncidentType["ACCIDENTS"] = 7] = "ACCIDENTS";
+    IncidentType[IncidentType["POTHOLE"] = 8] = "POTHOLE";
+    IncidentType[IncidentType["BROKEN_TRAFFIC_LIGHT"] = 9] = "BROKEN_TRAFFIC_LIGHT";
+    IncidentType[IncidentType["FIRE"] = 10] = "FIRE";
+    IncidentType[IncidentType["EXPLOSION"] = 11] = "EXPLOSION";
+    IncidentType[IncidentType["GAS_LEAK"] = 12] = "GAS_LEAK";
+    IncidentType[IncidentType["COLLAPSE"] = 13] = "COLLAPSE";
+    IncidentType[IncidentType["FLOOD"] = 14] = "FLOOD";
+    IncidentType[IncidentType["EARTHQUAKE"] = 15] = "EARTHQUAKE";
+    IncidentType[IncidentType["LANDSLIDE"] = 16] = "LANDSLIDE";
+    IncidentType[IncidentType["POWER_OUTAGE"] = 17] = "POWER_OUTAGE";
+    IncidentType[IncidentType["WATER_LEAK"] = 18] = "WATER_LEAK";
+    IncidentType[IncidentType["OPEN_MANHOLE"] = 19] = "OPEN_MANHOLE";
+    IncidentType[IncidentType["STREET_LIGHT_OUT"] = 20] = "STREET_LIGHT_OUT";
+    IncidentType[IncidentType["MEDICAL_EMERGENCY"] = 21] = "MEDICAL_EMERGENCY";
+    IncidentType[IncidentType["POLLUTION"] = 22] = "POLLUTION";
+    IncidentType[IncidentType["OTHER"] = 23] = "OTHER";
+})(IncidentType || (exports.IncidentType = IncidentType = {}));
+//# sourceMappingURL=incident-type.enum.js.map

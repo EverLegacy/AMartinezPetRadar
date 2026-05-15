@@ -12,4 +12,13 @@ export const envs = {
     DB_PORT: env.get("DB_PORT").required().asPortNumber(),
     DB_HOST: env.get("DB_HOST").required().asString(),
     DB_USER: env.get("DB_USER").required().asString(),
-};
+  
+   APPLICATIONINSIGHTS_CONNECTION_STRING: env
+   .get('APPLICATIONINSIGHTS_CONNECTION_STRING')
+   .required()
+    .asString(),
+  
+  
+  
+  
+  };
