@@ -19,7 +19,10 @@ export const dataSourceOptions : DataSourceOptions = {
       password: envs.DB_PASSWORD,
       entities:[LostPet, FoundPet],
       synchronize: false,
-      migrations: ["dist/core/db/migrations/*"]
+      migrations: ["dist/core/db/migrations/*"],
+      ssl: envs.DB_HOST === 'postgres' || envs.DB_HOST === 'localhost'
+        ? false
+        : { rejectUnauthorized: false },
 };
 
 export const dataSource = new DataSource(dataSourceOptions);
