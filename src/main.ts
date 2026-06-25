@@ -7,17 +7,7 @@ import { AppModule } from './app.module';
 import { envs } from './config/envs';
 import { dataSource } from './core/db/data-source';
 
-
-async function runMigrations() {
-  await dataSource.initialize();
-  await dataSource.runMigrations();
-  await dataSource.destroy();
-}
-
-async function bootstrap() {
-  await runMigrations();
-  const app = await NestFactory.create(AppModule);
-  
+// Azure Application Insights
 appInsights
   .setup(envs.APPLICATIONINSIGHTS_CONNECTION_STRING)
   .setAutoCollectRequests(true)
@@ -25,7 +15,22 @@ appInsights
   .setAutoCollectExceptions(true)
   .start();
 
+async function runMigrations() {
+  try {
+    console.log('Running pending migrations...');
+    await dataSource.initialize();
+    const executed = await dataSource.runMigrations();
+    console.log(`Migrations executed: ${executed.length}`);
+    await dataSource.destroy();
+  } catch (error) {
+    console.error('MIGRATION ERROR:', error);
+    process.exit(1);
+  }
+}
+
 async function bootstrap() {
+  await runMigrations();
+
   const app = await NestFactory.create(AppModule);
 
   app.setGlobalPrefix("api");
@@ -46,4 +51,3 @@ async function bootstrap() {
 }
 
 bootstrap();
-}
