@@ -1,10 +1,8 @@
-import { Body, Controller, Post, Get, Query, UseInterceptors,} from "@nestjs/common";
-import { CacheInterceptor } from "@nestjs/cache-manager";
+import { Body, Controller, Post, Get, Query,} from "@nestjs/common";
 import { CreateLostPetDto } from "./dto/create-lost-pet.dto";
 import { LostPetsService } from "./lost-pets.service";
 
 @Controller("lost-pets")
-@UseInterceptors(CacheInterceptor)
 export class LostPetsController {
     constructor(private readonly lostPetsService: LostPetsService) {}
 
