@@ -5,8 +5,19 @@ import * as appInsights from 'applicationinsights';
 
 import { AppModule } from './app.module';
 import { envs } from './config/envs';
+import { dataSource } from './core/db/data-source';
 
-// Azure Application Insights
+
+async function runMigrations() {
+  await dataSource.initialize();
+  await dataSource.runMigrations();
+  await dataSource.destroy();
+}
+
+async function bootstrap() {
+  await runMigrations();
+  const app = await NestFactory.create(AppModule);
+  
 appInsights
   .setup(envs.APPLICATIONINSIGHTS_CONNECTION_STRING)
   .setAutoCollectRequests(true)
@@ -35,3 +46,4 @@ async function bootstrap() {
 }
 
 bootstrap();
+}
